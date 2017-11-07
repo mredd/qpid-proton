@@ -353,6 +353,12 @@ set_target_properties (
   LINK_FLAGS "${CATCH_UNDEFINED}"
   )
 
+target_include_directories(qpid-proton
+  INTERFACE
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+  $<INSTALL_INTERFACE:install>
+)
+
 if (MSVC)
   # guard against use of C99 violating functions on Windows
   include(WindowsC99CheckDef)
