@@ -71,7 +71,7 @@ include_directories ("${CMAKE_CURRENT_SOURCE_DIR}/include")
 
 # TODO: This is only needed because the proton executable can use getopt on windows
 # if/when this executable gets sorted out remove
-include_directories ("${CMAKE_SOURCE_DIR}/examples/include")
+include_directories ("${PROJECT_SOURCE_DIR}/examples/include")
 
 set (env_py ${PYTHON_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/env.py)
 
@@ -394,11 +394,11 @@ install (TARGETS qpid-proton
 # Install windows qpid-proton pdb files
 if (MSVC)
   install(FILES ${CMAKE_CURRENT_BINARY_DIR}/Debug/qpid-proton${CMAKE_DEBUG_POSTFIX}.pdb
-    DESTINATION bin 
+    DESTINATION bin
     CONFIGURATIONS Debug
     OPTIONAL)
   install(FILES ${CMAKE_CURRENT_BINARY_DIR}/RelWithDebInfo/qpid-proton.pdb
-    DESTINATION bin 
+    DESTINATION bin
     CONFIGURATIONS RelWithDebInfo
     OPTIONAL)
 endif (MSVC)
@@ -418,7 +418,7 @@ pn_absolute_install_dir(INCLUDEDIR ${INCLUDE_INSTALL_DIR} ${CMAKE_INSTALL_PREFIX
 configure_file(
   ${CMAKE_CURRENT_SOURCE_DIR}/src/libqpid-proton.pc.in
   ${CMAKE_CURRENT_BINARY_DIR}/libqpid-proton.pc @ONLY)
-install (FILES 
+install (FILES
   ${CMAKE_CURRENT_BINARY_DIR}/libqpid-proton.pc
   DESTINATION ${LIB_INSTALL_DIR}/pkgconfig)
 

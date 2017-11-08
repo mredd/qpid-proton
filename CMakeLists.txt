@@ -102,7 +102,7 @@ set (PROTON_SHARE ${SHARE_INSTALL_DIR}/proton-${PN_VERSION})
 # End of variables used during install
 
 # Pull in local cmake modules
-set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/tools/cmake/Modules/")
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${PROJECT_SOURCE_DIR}/tools/cmake/Modules/")
 
 if (NOBUILD_JAVA)
   set (DEFAULT_JAVA OFF)
@@ -139,7 +139,7 @@ else (JAVA_FOUND AND MAVEN_EXE)
 endif (JAVA_FOUND AND MAVEN_EXE)
 
 # Generate test environment settings
-configure_file(${CMAKE_SOURCE_DIR}/config.sh.in
-               ${CMAKE_BINARY_DIR}/config.sh @ONLY)
-configure_file(${CMAKE_SOURCE_DIR}/config.bat.in
-               ${CMAKE_BINARY_DIR}/config.bat @ONLY)
+configure_file(${CMAKE_CURRENT_SOURCE_DIR}/config.sh.in
+               ${CMAKE_CURRENT_BINARY_DIR}/config.sh @ONLY)
+configure_file(${CMAKE_CURRENT_SOURCE_DIR}/config.bat.in
+               ${CMAKE_CURRENT_BINARY_DIR}/config.bat @ONLY)
